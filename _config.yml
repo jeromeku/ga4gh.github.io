@@ -3,9 +3,9 @@
 # ----------------------- #
 
 url: http://ga4gh.github.io
-title: GA4GH
-subtitle: Global Alliance for Genomics and Health
-author: Development Team 
+title: Global Alliance for Genomics and Health
+subtitle: 
+author: GA4GH Development Team 
 simple_search: https://www.google.com/search
 description: The Global Alliance for Genomics and Health (Global Alliance) is an international coalition, formed to enable the sharing of genomic and clinical data.
 
@@ -63,7 +63,7 @@ default_asides: [asides/recent_posts.html, asides/github.html, asides/delicious.
 # ----------------------- #
 
 # Github repositories
-github_user:
+github_user: ga4gh
 github_repo_count: 0
 github_show_profile_link: true
 github_skip_forks: true
