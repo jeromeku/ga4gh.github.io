@@ -2,12 +2,12 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://yoursite.com
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
+url: http://ga4gh.github.io
+title: GA4GH
+subtitle: Global Alliance for Genomics and Health
+author: Development Team 
 simple_search: https://www.google.com/search
-description:
+description: The Global Alliance for Genomics and Health (Global Alliance) is an international coalition, formed to enable the sharing of genomic and clinical data.
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
