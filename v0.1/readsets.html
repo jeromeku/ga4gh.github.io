@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Readsets</title>
+    <link href="/assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/stylesheets/docs.css" rel="stylesheet" type="text/css">
+    <script src="/javascripts/libs/jquery/jquery-2.0.3.min.js"></script>
+    <script src="/assets/bootstrap/dist/js/bootstrap.min.js"></script>
+  </head>
+  <body class="docs">
+
+  <div class="header">
+    <img src="http://genomicsandhealth.org/files/logo_ga.png" height="88" width="384" alt="Logo">
+  </div>
+
+  <div class="col-sm-3">
+    <div class="sidebar-nav">
+      <div class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <span class="visible-xs navbar-brand">Reads API</span>
+        </div>
+        <div class="navbar-collapse collapse sidebar-navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/v0.1">Reads API v0.1</a></li>
+            <li class="active"> <a href="/v0.1/readsets.html">Readsets</a>
+              <ul>
+                <li><a href="/v0.1/readsets.get.html">get</a></li>
+                <li><a href="/v0.1/readsets.search.html">search</a></li>
+              </ul>
+            </li>
+            <li> <a href="/v0.1/reads.html">Reads</a>
+              <ul>
+                <li><a href="/v0.1/reads.search.html">search</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+  </div>
+
+<section class="col-md-9">
+
+<h2>Readsets</h2>
+
+<section id="overview">
+  <p>A Readset is a collection of <a href="/v0.1/reads.html">Reads</a>.</p>
+  <p>For a list of <a href="#methods">methods</a> for this resource, see the end of this page.</p>
+</section>
+
+<section id="resource" >
+  <h3>Resource representations</h3>
+    <p></p>
+
+  <section >
+    <pre id="alt-json" class="prettyprint" style="max-height: 500px; overflow: auto">&#123;
+  &quot;id&quot;: <var class="apiparam">string</var>,
+  &quot;name&quot;: <var class="apiparam">string</var>,
+  &quot;datasetId&quot;: <var class="apiparam">string</var>,
+  &quot;created&quot;: <var class="apiparam">long</var>,
+  &quot;readCount&quot;: <var class="apiparam">unsigned long</var>,
+  &quot;fileData&quot;: [
+    &#123;
+      &quot;fileUri&quot;: <var class="apiparam">string</var>,
+      &quot;headers&quot;: [
+        &#123;
+          &quot;version&quot;: <var class="apiparam">string</var>,
+          &quot;sortingOrder&quot;: <var class="apiparam">string</var>
+        &#125;
+      ],
+      &quot;refSequences&quot;: [
+        &#123;
+          &quot;name&quot;: <var class="apiparam">string</var>,
+          &quot;length&quot;: <var class="apiparam">integer</var>,
+          &quot;assemblyId&quot;: <var class="apiparam">string</var>,
+          &quot;md5Checksum&quot;: <var class="apiparam">string</var>,
+          &quot;species&quot;: <var class="apiparam">string</var>,
+          &quot;uri&quot;: <var class="apiparam">string</var>
+        &#125;
+      ],
+      &quot;readGroups&quot;: [
+        &#123;
+          &quot;id&quot;: <var class="apiparam">string</var>,
+          &quot;sequencingCenterName&quot;: <var class="apiparam">string</var>,
+          &quot;description&quot;: <var class="apiparam">string</var>,
+          &quot;date&quot;: <var class="apiparam">string</var>,
+          &quot;flowOrder&quot;: <var class="apiparam">string</var>,
+          &quot;keySequence&quot;: <var class="apiparam">string</var>,
+          &quot;library&quot;: <var class="apiparam">string</var>,
+          &quot;processingProgram&quot;: <var class="apiparam">string</var>,
+          &quot;predictedInsertSize&quot;: <var class="apiparam">integer</var>,
+          &quot;sequencingTechnology&quot;: <var class="apiparam">string</var>,
+          &quot;platformUnit&quot;: <var class="apiparam">string</var>,
+          &quot;sample&quot;: <var class="apiparam">string</var>
+        &#125;
+      ],
+      &quot;programs&quot;: [
+        &#123;
+          &quot;id&quot;: <var class="apiparam">string</var>,
+          &quot;name&quot;: <var class="apiparam">string</var>,
+          &quot;commandLine&quot;: <var class="apiparam">string</var>,
+          &quot;prevProgramId&quot;: <var class="apiparam">string</var>,
+          &quot;version&quot;: <var class="apiparam">string</var>
+        &#125;
+      ],
+      &quot;comments&quot;: [
+        <var class="apiparam">string</var>
+      ]
+    &#125;
+  ]
+&#125;</pre>
+    <table class="matchpre table" id="properties">
+      <thead>
+        <tr>
+          <th>Property name</th>
+          <th>Value</th>
+          <th>Description</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr id="created">
+        <td><code>created</code></td>
+        <td><code class="apitype">long</code></td>
+        <td>The date this readset was created in milliseconds from the epoch.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="datasetId">
+        <td><code>datasetId</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>The ID of the dataset this readset belongs to.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="fileData">
+        <td><code>fileData[]</code></td>
+        <td><code class="apitype">list</code></td>
+        <td>File information from the original BAM import. See the <a href="http://samtools.sourceforge.net/SAMv1.pdf">BAM format specification</a> for additional information on each field.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="fileData.comments">
+        <td><code><span class="quiet">fileData[].</span>comments[]</code></td>
+        <td><code class="apitype">list</code></td>
+        <td>(@CO) One-line text comments.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="fileData.fileUri">
+        <td><code><span class="quiet">fileData[].</span>fileUri</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>The file uri that this data was imported from.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="fileData.headers">
+        <td><code><span class="quiet">fileData[].</span>headers[]</code></td>
+        <td><code class="apitype">list</code></td>
+        <td>(@HD) The header line.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="fileData.headers.sortingOrder">
+        <td><code><span class="quiet">fileData[].headers[].</span>sortingOrder</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>(SO) Sorting order of alignments.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="fileData.headers.version">
+        <td><code><span class="quiet">fileData[].headers[].</span>version</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>(VN) BAM format version.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="fileData.programs">
+        <td><code><span class="quiet">fileData[].</span>programs[]</code></td>
+        <td><code class="apitype">list</code></td>
+        <td>(@PG) Programs.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="fileData.programs.commandLine">
+        <td><code><span class="quiet">fileData[].programs[].</span>commandLine</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>(CL) Command line.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="fileData.programs.id">
+        <td><code><span class="quiet">fileData[].programs[].</span>id</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>(ID) Program record identifier.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="fileData.programs.name">
+        <td><code><span class="quiet">fileData[].programs[].</span>name</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>(PN) Program name.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="fileData.programs.prevProgramId">
+        <td><code><span class="quiet">fileData[].programs[].</span>prevProgramId</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>(PP) Previous program id.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="fileData.programs.version">
+        <td><code><span class="quiet">fileData[].programs[].</span>version</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>(VN) Program version.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="fileData.readGroups">
+        <td><code><span class="quiet">fileData[].</span>readGroups[]</code></td>
+        <td><code class="apitype">list</code></td>
+        <td>(@RG) Read group.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="fileData.readGroups.date">
+        <td><code><span class="quiet">fileData[].readGroups[].</span>date</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>(DT) Date the run was produced (ISO8601 date or date/time.)</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="fileData.readGroups.description">
+        <td><code><span class="quiet">fileData[].readGroups[].</span>description</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>(DS) Description.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="fileData.readGroups.flowOrder">
+        <td><code><span class="quiet">fileData[].readGroups[].</span>flowOrder</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>(FO) Flow order. The array of nucleotide bases that correspond to the nucleotides used for each flow of each read.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="fileData.readGroups.id">
+        <td><code><span class="quiet">fileData[].readGroups[].</span>id</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>(ID) Read group identifier.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="fileData.readGroups.keySequence">
+        <td><code><span class="quiet">fileData[].readGroups[].</span>keySequence</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>(KS) The array of nucleotide bases that correspond to the key sequence of each read.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="fileData.readGroups.library">
+        <td><code><span class="quiet">fileData[].readGroups[].</span>library</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>(LS) Library.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="fileData.readGroups.platformUnit">
+        <td><code><span class="quiet">fileData[].readGroups[].</span>platformUnit</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>(PU) Platform unit.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="fileData.readGroups.predictedInsertSize">
+        <td><code><span class="quiet">fileData[].readGroups[].</span>predictedInsertSize</code></td>
+        <td><code class="apitype">integer</code></td>
+        <td>(PI) Predicted median insert size.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="fileData.readGroups.processingProgram">
+        <td><code><span class="quiet">fileData[].readGroups[].</span>processingProgram</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>(PG) Programs used for processing the read group.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="fileData.readGroups.sample">
+        <td><code><span class="quiet">fileData[].readGroups[].</span>sample</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>(SM) Sample.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="fileData.readGroups.sequencingCenterName">
+        <td><code><span class="quiet">fileData[].readGroups[].</span>sequencingCenterName</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>(CN) Name of sequencing center producing the read.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="fileData.readGroups.sequencingTechnology">
+        <td><code><span class="quiet">fileData[].readGroups[].</span>sequencingTechnology</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>(PL) Platform/technology used to produce the reads.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="fileData.refSequences">
+        <td><code><span class="quiet">fileData[].</span>refSequences[]</code></td>
+        <td><code class="apitype">list</code></td>
+        <td>(@SQ) Reference sequence dictionary.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="fileData.refSequences.assemblyId">
+        <td><code><span class="quiet">fileData[].refSequences[].</span>assemblyId</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>(AS) Genome assembly identifier.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="fileData.refSequences.length">
+        <td><code><span class="quiet">fileData[].refSequences[].</span>length</code></td>
+        <td><code class="apitype">integer</code></td>
+        <td>(LN) Reference sequence length.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="fileData.refSequences.md5Checksum">
+        <td><code><span class="quiet">fileData[].refSequences[].</span>md5Checksum</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>(M5) MD5 checksum of the sequence in the uppercase, excluding spaces but including pads as *.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="fileData.refSequences.name">
+        <td><code><span class="quiet">fileData[].refSequences[].</span>name</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>(SN) Reference sequence name.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="fileData.refSequences.species">
+        <td><code><span class="quiet">fileData[].refSequences[].</span>species</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>(SP) Species.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="fileData.refSequences.uri">
+        <td><code><span class="quiet">fileData[].refSequences[].</span>uri</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>(UR) URI of the sequence.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="id">
+        <td><code>id</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>The readset ID.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="name">
+        <td><code>name</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>The readset name.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="readCount">
+        <td><code>readCount</code></td>
+        <td><code class="apitype">unsigned long</code></td>
+        <td>The number of reads in this readset.</td>
+        <td>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+</section>
+
+<section id="methods"  >
+  <h3>Methods</h3>
+
+  <dl>
+
+      <dt><a href="/v0.1/readsets.get.html">get</a></dt>
+      <dd>Gets a readset by ID.</dd>
+
+
+      <dt><a href="/v0.1/readsets.search.html">search</a></dt>
+      <dd>Gets a list of readsets matching the criteria.</dd>
+  </dl>
+</section>
+
+</section>
+
+  </body>
+</html>
