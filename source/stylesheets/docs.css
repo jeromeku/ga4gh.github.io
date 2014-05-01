@@ -3,6 +3,11 @@
   margin-top: 20px;
 }
 
+.sidebar-nav li.active > a {
+  color: #555;
+  font-weight: bold;
+}
+
 @media (min-width: 768px) {
   .sidebar-nav .navbar .navbar-collapse {
     padding: 0 0 15px 0;
@@ -16,7 +21,7 @@
     float: none;
     display: block;
   }
-  .sidebar-nav .navbar li a {
+  .sidebar-nav .navbar > li a {
     padding-top: 12px;
     padding-bottom: 12px;
   }
