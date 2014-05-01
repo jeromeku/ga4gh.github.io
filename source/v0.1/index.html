@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>API Reference</title>
+    <link href="/assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/stylesheets/docs.css" rel="stylesheet" type="text/css">
+  </head>
+  <body class="docs">
+
+<section >
+<p>TODO: Description</p>
+
+  <h2>Resource types</h2>
+  <ol class="toc">
+    <li><a href="#Datasets">
+        Datasets
+        </a>
+    </li>
+    <li><a href="#Readsets">
+        Readsets
+        </a>
+    </li>
+    <li><a href="#Reads">
+        Reads
+        </a>
+    </li>
+  </ol>
+
+  <section >
+  <h2 id="Readsets">
+      Readsets
+  </h2>
+  <p>For Readsets Resource details, see the <a href="/v0.1/readsets.html">resource representation</a> page.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>HTTP request</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr class="alt">
+      <td colspan="3">URIs relative to each providers API endpoint</td>
+    </tr>
+      <tr>
+        <td>
+
+          <a href="/v0.1/readsets.get.html">get</a>
+
+        </td>
+        <td>
+          <code>GET&nbsp; /readsets/<var class="apiparam">readsetId</var></code>
+        </td>
+        <td>
+          Gets a readset by ID.
+        </td>
+      </tr>
+      <tr>
+        <td>
+
+          <a href="/v0.1/readsets.search.html">search</a>
+
+        </td>
+        <td>
+          <code>POST&nbsp; /readsets/search</code>
+        </td>
+        <td>
+          Gets a list of readsets matching the criteria.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+   </section>
+  <section >
+  <h2 id="Reads">
+      Reads
+  </h2>
+  <p>For Reads Resource details, see the <a href="/v0.1/reads.html">resource representation</a> page.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>HTTP request</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr class="alt">
+      <td colspan="3">URIs relative to each providers API endpoint</td>
+    </tr>
+      <tr>
+        <td>
+
+          <a href="/v0.1/reads.search.html">search</a>
+
+        </td>
+        <td>
+          <code>POST&nbsp; /reads/search</code>
+        </td>
+        <td>
+          Gets a list of reads matching the criteria.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+   </section>
+
+ </section>
+
+  </body>
+</html>
