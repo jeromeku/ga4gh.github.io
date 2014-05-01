@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Reads</title>
+  </head>
+  <body class="docs">
+
+<section id="overview" >
+  <p>A Read is a group of bases that may or may not have been aligned to a reference. It contains quality information and other metadata. All Reads belong to exactly one <a href="/v0.1/readsets.html">Readset</a>.</p>
+  <p>For a list of <a href="#methods">methods</a> for this resource, see the end of this page.</p>
+</section>
+
+<section id="resource" >
+  <h2>Resource representations</h2>
+    <p></p>
+
+  <section >
+    <pre id="alt-json" class="prettyprint" style="max-height: 500px; overflow: auto">&#123;
+  &quot;id&quot;: <var class="apiparam">string</var>,
+  &quot;name&quot;: <var class="apiparam">string</var>,
+  &quot;readsetId&quot;: <var class="apiparam">string</var>,
+  &quot;flags&quot;: <var class="apiparam">integer</var>,
+  &quot;referenceSequenceName&quot;: <var class="apiparam">string</var>,
+  &quot;position&quot;: <var class="apiparam">integer</var>,
+  &quot;mappingQuality&quot;: <var class="apiparam">integer</var>,
+  &quot;cigar&quot;: <var class="apiparam">string</var>,
+  &quot;mateReferenceSequenceName&quot;: <var class="apiparam">string</var>,
+  &quot;matePosition&quot;: <var class="apiparam">integer</var>,
+  &quot;templateLength&quot;: <var class="apiparam">integer</var>,
+  &quot;originalBases&quot;: <var class="apiparam">string</var>,
+  &quot;alignedBases&quot;: <var class="apiparam">string</var>,
+  &quot;baseQuality&quot;: <var class="apiparam">string</var>,
+  &quot;tags&quot;: &#123;
+    <var class="apiparam">(key)</var>: [
+      <var class="apiparam">string</var>
+    ]
+  &#125;
+&#125;</pre>
+    <table class="matchpre" id="properties">
+      <thead>
+        <tr>
+          <th>Property name</th>
+          <th>Value</th>
+          <th>Description</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr id="alignedBases">
+        <td><code>alignedBases</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>The originalBases after the cigar field has been applied. Deletions are represented with &#39;-&#39; and insertions are omitted.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="baseQuality">
+        <td><code>baseQuality</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>Represents the quality of each base in this read. Each character represents one base. To get the quality, take the ASCII value of the character and subtract 33. (QUAL)</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="cigar">
+        <td><code>cigar</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>A condensed representation of how this read matches up to the reference. (CIGAR)</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="flags">
+        <td><code>flags</code></td>
+        <td><code class="apitype">integer</code></td>
+        <td>Each bit of this number has a different meaning if enabled. See the full BAM spec for more details. (FLAG)</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="id">
+        <td><code>id</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>The read ID.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="mappingQuality">
+        <td><code>mappingQuality</code></td>
+        <td><code class="apitype">integer</code></td>
+        <td>A score up to 255 that represents how likely this read&#39;s aligned position is correct. A higher value is better. (MAPQ)</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="matePosition">
+        <td><code>matePosition</code></td>
+        <td><code class="apitype">integer</code></td>
+        <td>The 1-based start position of the paired read. (PNEXT)</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="mateReferenceSequenceName">
+        <td><code>mateReferenceSequenceName</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>The name of the sequence that the paired read is aligned to. This is usually the same as referenceSequenceName. (RNEXT)</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="name">
+        <td><code>name</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>The name of the read. When imported from a BAM file, this is the query template name. (QNAME)</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="originalBases">
+        <td><code>originalBases</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>The list of bases that this read represents (e.g. &#39;CATCGA&#39;). (SEQ)</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="position">
+        <td><code>position</code></td>
+        <td><code class="apitype">integer</code></td>
+        <td>The 1-based start position of the aligned read. If the first base starts at the very beginning of the reference sequence, then the position would be &#39;1&#39;. (POS)</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="readsetId">
+        <td><code>readsetId</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>The ID of the readset this read belongs to.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="referenceSequenceName">
+        <td><code>referenceSequenceName</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>The name of the sequence that this read is aligned to. This would be &#39;X&#39; for the X Chromosome or &#39;20&#39; for Chromosome 20. (RNAME)</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="tags">
+        <td><code>tags</code></td>
+        <td><code class="apitype">object</code></td>
+        <td>A map of additional read information. (TAG)</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="tags.(key)">
+        <td><code><span class="quiet">tags.</span>(key)[]</code></td>
+        <td><code class="apitype">list</code></td>
+        <td>A string which maps to an array of values.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="templateLength">
+        <td><code>templateLength</code></td>
+        <td><code class="apitype">integer</code></td>
+        <td>Length of the original piece of dna that produced both this read and the paired read. (TLEN)</td>
+        <td>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+</section>
+
+<section id="methods"  >
+  <h2>Methods</h2>
+
+  <dl>
+
+      <dt><a href="/v0.1/reads.search.html">search</a></dt>
+      <dd>Gets a list of reads matching the criteria.</dd>
+
+  </dl>
+</section>
+
+
+
+  </body>
+</html>

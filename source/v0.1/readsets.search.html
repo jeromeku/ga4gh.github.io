@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Readsets: search</title>
+  </head>
+  <body class="docs">
+
+<p>Gets a list of readsets matching the criteria.
+</p>
+
+
+
+<section id="request" >
+  <h2>Request</h2>
+  <h3>HTTP request</h3>
+<pre>POST /readsets/search</pre>
+
+  <h3>Request body</h3>
+
+  <p>In the request body, supply data with the following structure:</p>
+  <section >
+    <pre class="prettyprint">&#123;
+  &quot;datasetIds&quot;: [
+    <var class="apiparam">string</var>
+  ],
+  &quot;name&quot;: <var class="apiparam">string</var>,
+  &quot;pageToken&quot;: <var class="apiparam">string</var>
+&#125;</pre>
+    <table class="matchpre" id="request_properties_JSON">
+      <thead>
+        <tr>
+          <th>Property name</th>
+          <th>Value</th>
+          <th>Description</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr id="datasetIds">
+        <td><code>datasetIds[]</code></td>
+        <td><code class="apitype">list</code></td>
+        <td>Restricts this query to readsets within the given datasets. At least one ID must be provided.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="pageToken">
+        <td><code>pageToken</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of &quot;nextPageToken&quot; from the previous response.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="name">
+        <td><code>name</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>Only return readsets with names matching this substring.</td>
+        <td>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+</section>
+
+<section id="response" >
+  <h2>Response</h2>
+
+  <p>If successful, this method returns a response body with the following structure:</p>
+  <section >
+    <pre class="prettyprint">&#123;
+  &quot;readsets&quot;: [
+    <a href="/v0.1/readsets.html">readsets Resource</a>
+  ],
+  &quot;nextPageToken&quot;: <var class="apiparam">string</var>
+&#125;</pre>
+    <table class="matchpre" id="response_properties_JSON">
+      <thead>
+        <tr>
+          <th>Property name</th>
+          <th>Value</th>
+          <th>Description</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr id="readsets">
+        <td><code>readsets[]</code></td>
+        <td><code class="apitype">list</code></td>
+        <td>The list of matching <a href="/v0.1/readsets.html">Readsets</a>.</td>
+        <td>
+        </td>
+      </tr>
+      <tr id="nextPageToken">
+        <td><code>nextPageToken</code></td>
+        <td><code class="apitype">string</code></td>
+        <td>The continuation token, which is used to page through large result sets. Provide this value in a subsequent request to return the next page of results. This field will be empty if there aren&#39;t any additional results.</td>
+        <td>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+</section>
+
+
+
+  </body>
+</html>
