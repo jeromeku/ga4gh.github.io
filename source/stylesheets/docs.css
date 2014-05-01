@@ -1,3 +1,31 @@
+/* make sidebar nav vertical */
+.sidebar-nav {
+  margin-top: 20px;
+}
+
+@media (min-width: 768px) {
+  .sidebar-nav .navbar .navbar-collapse {
+    padding: 0 0 15px 0;
+    max-height: none;
+  }
+  .sidebar-nav .navbar ul {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+
+body.docs .header {
+  padding: .5em 1em 0 1em;
+}
+
 code {
   color: #666;
   background-color: #fafafa;
