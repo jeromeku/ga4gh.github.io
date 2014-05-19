@@ -83,7 +83,7 @@
         <div id="content">
           <img src="http://genomicsandhealth.org/files/logo_ga.png" height="88" width="384" alt="Logo"/>
 
-<h2>Welcome</h2>
+<h3>Welcome</h3>
 
 <p>
 Welcome to the Global Alliance for Genomics and Health development team site.
@@ -99,43 +99,15 @@ The Data Working Group is defining standards for working with genomic data, incl
   <li><a href="http://ga4gh.github.io/apis/reads/v0.1/">Reads API v0.1</a></li>
 </ul>
 
-<h3>Source Code and Discussion</h3>
+<h3>Source Code</h3>
 
-
-<section class="panel panel-default clearfix">
-  <div class="panel-heading">
-      <h3 class="panel-title">GitHub Repos</h3>
-  </div>
-  <div class="list-group" id="gh_repos">
-    <p class="loading">Status updating&#8230;</p>
-  </div>
-  
-    <div class="gh-profile-link pull-right text-muted">
-      <a href="https://github.com/ga4gh">@ga4gh</a> on GitHub
-    </div>
-  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'ga4gh',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
-</section>
-
-
+The Data Working Group uses <a href="https://github.com/ga4gh">GitHub</a> to coordinate development,
+including the following repos:
+<ul>
+  <li><a href="https://github.com/ga4gh/schemas">schemas</a>: work on future versions of data models and APIs</li>
+  <li><a href="https://github.com/ga4gh/ga4gh.github.io">website</a>: the source code for this website</li>
+  <li><a href="https://github.com/ga4gh/Beacon">Beacon</a>: a project to query the world&#8217;s open genomic repositories</p>
+</ul>
 
         </div>
       </div>
